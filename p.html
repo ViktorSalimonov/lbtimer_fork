@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel=stylesheet>
+<style>
+    * {
+        font-family: Ubuntu, sans-serif
+    }
+
+    body {
+        margin: 4px;
+        font-size: 100%
+    }
+
+    #LB {
+        background: #ff9800 url(img/t.svg) 5px 7px/36px 36px no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        color: #fff;
+        font: 700 20px Ubuntu, sans-serif;
+        height: 50px;
+        width: 280px;
+        user-select: none;
+        cursor: pointer
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        font-family: Ubuntu;
+        text-align: center
+    }
+
+    td {
+        font-size: 12px;
+        user-select: none;
+        cursor: default
+    }
+
+    tr:first-child td {
+        border-bottom: 1px solid #222;
+        font-weight: 700
+    }
+
+    tr:last-child:not(:first-child) td {
+        border-top: 1px solid #222;
+        font-weight: 700
+    }
+
+    .auto {
+        position: relative;
+        padding: 5px;
+        font-size: 12px;
+        cursor: pointer
+    }
+
+    #more {
+        padding: 5px;
+        font-size: 12px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 42px;
+        right: 2px
+    }
+
+    .auto:after {
+        content: attr(data-is);
+        padding: 3px;
+        font-weight: 700;
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 4px
+    }
+
+    [data-is=ON]:after {
+        background-color: #0b5;
+        color: #eee
+    }
+
+    [data-is=OFF]:after {
+        background-color: #f44336
+    }
+
+    [data-is=STOP]:after {
+        background-color: #ffc300
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        height: 200px
+    }
+
+    .container>div {
+        flex: 1;
+        padding: 3px
+    }
+
+    .footer {
+        display: flex;
+        position: fixed;
+        bottom: 2px;
+        height: 40px;
+        background-color: #ddd;
+        border-radius: 4px;
+        width: 280px
+    }
+
+    .footer>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center
+    }
+
+    #hl {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 100%;
+        background-color: #555;
+        color: #fff;
+        font-weight: 700
+    }
+
+    #pl {
+        font-weight: 700;
+        padding: 4px;
+        cursor: pointer;
+        user-select: none;
+        margin-right: 4px
+    }
+
+    #tim,
+    label {
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: 700;
+        color: #333;
+        cursor: pointer
+    }
+
+    input {
+        display: none
+    }
+
+    input:checked+label:after {
+        content: "ON";
+        color: #fff
+    }
+
+    input:not(:checked)+label:after {
+        content: "OFF";
+        color: #555
+    }
+</style>
+<div id=LB title="Open LBTimer's main panel">LBTimer</div>
+<div class=container>
+    <div>
+        <table id=ts>
+            <tr>
+                <td>Loading...
+        </table>
+    </div>
+    <div style="display:flex;flex-direction:column;position:relative;border-left:1px dotted #ddd">
+        <div class=auto>autosubmit</div>
+        <div class=auto>autoacquire</div>
+        <div class=auto>autoreload</div>
+        <div id=more>More Settings...</div>
+    </div>
+</div>
+<div class=footer>
+    <div style=flex:1>
+        <div id=hl title="Open online help">?</div>
+    </div>
+    <div id=tmr style=flex:3 style=visibility:hidden>
+        <div id=pl></div>
+        <div id=tim title="Open external clock">-:--</div>
+    </div>
+    <div style=flex:1><input id=onoff type=checkbox><label for=onoff></label></div>
+</div>
+<script src=p.js></script>

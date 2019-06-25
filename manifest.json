@@ -1,0 +1,43 @@
+{
+   "author": "Ivan Nokonoko",
+   "background": {
+      "page": "b.html"
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "img/t19.png",
+         "38": "img/t38.png"
+      },
+      "default_popup": "p.html",
+      "default_title": "LBTimer"
+   },
+   "content_scripts": [ {
+      "js": [ "c.js" ],
+      "matches": [ "*://*.raterhub.com/*" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": true,
+      "js": [ "t.js" ],
+      "matches": [ "*://*.sap.lionbridge.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Task counter & timer for Lionbridge and Leapforce raters, integrated with Google Drive™",
+   "homepage_url": "https://lbtimer.github.io",
+   "icons": {
+      "128": "img/t128.png",
+      "16": "img/t16.png",
+      "48": "img/t48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnqQmqt76scX494L9AtBZMpCVjeU+CGkOYWMLU8VR6bD8o0M3la0oV2SXiu6EoX6jaWPIeHZoknfCJc/4zytQ9biX6YCZQkU5sg2kO0w00E6hve5fgd1iO9L8tQaai3G3kfZql8ZfcNKW20PIEZgrhSTmTLp7LFwdwZLY9ntD4TeEmWen95odOvwT1c+pj1z1biqAQqi7Si8Ma9F6Npplz4UkbBigALZXnD7w2NpRqKee4eQtR6tupHgKmP1HgThRAKmxcZmi79paeHZF9oK5PmPwo3Q+KtbjBm9bePFLWMlOgyZuSQKxbtBVuI0cfQsAM8CVtx6QeOuyY6wn9FOkxQIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "45",
+   "name": "LBTimer",
+   "oauth2": {
+      "client_id": "154588762545-4hlglgbg2vt17dqaulk4epv6aojro6il.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/drive.appdata" ]
+   },
+   "optional_permissions": [ "history" ],
+   "permissions": [ "tabs", "\u003Call_urls>", "storage", "notifications", "webRequest", "identity" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.1"
+}

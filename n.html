@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<title>LBTimer</title>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel=stylesheet>
+<link href=css/s.css rel=stylesheet>
+<link href=img/t128.png rel="shortcut icon" id=favicon type=image/png> <div class=lbHeader>
+<h2 style=color:#fff>LBTimer</h2>
+</div>
+<div style=position:fixed;bottom:0;left:0;right:0;height:0;z-index:5>
+  <div id=lvlb><a target=_blank
+      href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7V39KFMCB8XS6"
+      title="Support LBTimer"></a></div>
+</div>
+<div>
+  <div class=subscreen id=weekscreen style=display:none>
+    <div>
+      <table class=calen id=weekly>
+        <col>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <col span=2>
+        <tr>
+          <th>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=date>
+          <th colspan=2 class=totals>TOTAL
+        <tr class=even>
+          <td><b>TASKS</b>
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td>TIME
+          <td>Tasks
+          <td class=remark>TIME
+          <td class=remark>Tasks
+        <tr>
+          <td>DB
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>EXP
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>IRR
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>RR
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>SXS
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>TTR
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr>
+          <td>URL
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td class=remark>
+          <td class=remark>
+        <tr class=total>
+          <td class=totals>TOTAL
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+      </table>
+    </div>
+    <div style=margin:3px><button id=wprev title="Previous week" class=selfexp>&lt;&lt;</button> <button id=wtoday
+        title="Show the week containing today" class=selfexp>today</button> <button id=wnext title="Next week"
+        class=selfexp>&gt;&gt;</button></div>
+    <div style=margin:3px><input type=date id=adate title="Select date to display"></div>
+    <hr>
+    <div class=mtable>
+      <table class=calen style=z-index:5>
+        <tr>
+          <th>Month:
+          <th colspan=2 id=month>
+        <tr>
+          <th>Type
+          <th>Time
+          <th>Tasks
+        <tr>
+          <td>DB
+          <td>
+          <td>
+        <tr>
+          <td>EXP
+          <td>
+          <td>
+        <tr>
+          <td>IRR
+          <td>
+          <td>
+        <tr>
+          <td>RR
+          <td>
+          <td>
+        <tr>
+          <td>SXS
+          <td>
+          <td>
+        <tr>
+          <td>TTR
+          <td>
+          <td>
+        <tr>
+          <td>URL
+          <td>
+          <td>
+        <tr class=total>
+          <td class=totals>TOTAL
+          <td id=tmonth>
+          <td id=mTasks>
+      </table>
+    </div>
+  </div>
+  <div class=subscreen id=monthscreen style=display:none>
+    <div style=margin:auto;width:80% id=monthly>
+      <h2 style=color:#01579b id=monthly_month></h2>
+      <table class=calen>
+        <tr>
+          <th>
+          <th>
+          <th>
+          <th>
+          <th>
+          <th>
+          <th>
+          <th>
+        <tr>
+          <td>1st Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+        <tr>
+          <td>2nd Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+        <tr>
+          <td>3rd Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+        <tr>
+          <td>4th Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+        <tr>
+          <td>5th Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+        <tr>
+          <td>6th Week
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+          <td>
+      </table>
+      <div><button id=mprev title="Previous month" class=selfexp>&lt;&lt;</button> <button id=mtoday
+          title="Show the month containing today" class=selfexp>today</button> <button id=mnext title="Next month"
+          class=selfexp>&gt;&gt;</button></div>
+    </div>
+  </div>
+  <div class=subscreen id=welcome style=display:none>
+    <h2 style=color:#01579b>LBTimer is installed</h2>
+    <div class=menupanel>
+      <p>You have successfully installed LBTimer. You can now see the LBTimer icon <img src=img/t.svg
+          style=vertical-align:middle width=19px> on the right side of the address bar. Click on that icon to access
+        this main panel, view your work of the day, and quickly manage some automatic features.<p>To access other
+          functions, hover over the big LBTimer icon <img src=img/t.svg style=vertical-align:middle width=32px> on the
+          top left of this page.</p><br>
+        <p>The timer and task counter will work <b>automatically</b> as soon as you enter the <a target=_blank
+            href=https://www.raterhub.com>Raterhub page</a>, and all the data will be recorded securely in a hidden
+            folder in your Google Drive&#x2122;. Most of the functions and buttons of LBTimer are self-explanatory: if
+            you place the mouse cursor on them, a tooltip will appear with an explanation.<p
+            title="LBTimer is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+  LBTimer is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.">This
+            extension is continually under development and has no warranty.<p>If you have any comment, suggestion or
+              feedback, feel free to <a target=_blank href="mailto:iczubakczubak@gmail.com?subject=LBTimer"
+                title="E-mail me!">contact me</a>.</p><br>
+            <p style=text-align:center>Enjoy and have a very productive rating session!<br><br><br><br>&#xa9; 2014-2017
+              Iv&aacute;n Nokonoko
+    </div>
+  </div>
+</div>
+<div class=dark id=whatsnew>
+  <div style=width:700px;height:360px>
+    <div class=drag>What's new</div>
+    <div style=height:306px;overflow:auto>
+      <h3>6.1</h3>
+      <ul>
+        <li>Added backwards compatibility for older versions of Chrome
+        <li>View real or AET time in popup timesheet
+        <li>Minor bug fixes
+      </ul>
+    </div>
+    <div class=darkfoot style=text-align:center;color:#f90><b>If LBTimer helps you with your work, consider <a
+          target=_blank
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7V39KFMCB8XS6">supporting
+          it</a></b></div>
+  </div>
+</div>
+<div class=dark id=contactscreen>
+  <div style=width:600px;height:360px>
+    <div class=drag>Contact</div>
+    <div style=display:flex;flex-direction:row;height:85%>
+      <div
+        style=flex:1;display:flex;flex-direction:column;justify-content:center;background-color:#fb4;border-radius:6px;margin-right:4px>
+        <img src=img/t.svg style=height:100px;padding-bottom:20px>
+        <div>LBTimer 6.1</div><label>&#169;2014-2017</label><label>Iv&aacute;n Nokonoko</label><a target=_blank
+          href="mailto:iczubakczubak@gmail.com?subject=LBTimer">e-mail</a>
+      </div>
+      <div style=flex:3;position:relative><textarea id=msg placeholder="Write here"></textarea>
+        <div class=darkfoot><a target=_blank
+            href=https://chrome.google.com/webstore/detail/nocdlcgkdeopogoldfeahdneobfaiggd/reviews
+            title="Rate and comment about LBTimer in Google Chrome's Web Store" class=ctc>+1</a><a target=_blank
+            href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7V39KFMCB8XS6"
+            title="Support LBTimer" class=ctc>support</a> <button id=sndmsg
+            title="Send a message to LBTimer's developer">send</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=dark id=exportscreen>
+  <div style=width:700px;height:400px>
+    <div class=drag>Export / Import</div>
+    <div class=stngs>
+      <section><input type=radio id=exp name=ie checked><label for=exp>Export</label>
+        <div><label><input type=radio name=CSVExp> Today</label><br><label><input type=radio name=CSVExp> Month: <input
+              type=month id=CSVm></label><br><label><input type=radio name=CSVExp> From: <input type=date id=CSVf> - To:
+            <input type=date id=CSVt></label><br><label><input type=radio name=CSVExp> All data</label>
+          <div class=darkfoot><button id=doExport title="Export the selected data to CSV format">export</button></div>
+        </div>
+      </section>
+      <section><input type=radio id=imp name=ie><label for=imp>Import</label>
+        <div>
+          <div style=display:flex;flex-direction:row><label class=imp><input type=file id=impfil
+                style=display:none>Choose file</label>
+            <div class=imp style=display:none><button id=doimp>Import</button> <button id=noimp>Discard</button></div>
+          </div>
+          <div class=preimp>Choose file or drop it here</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class=dark id=delscreen>
+  <div style=width:500px;height:300px>
+    <div class=drag>Delete records</div>
+    <div style="text-align:left;padding:0 20px;background-color:#fff;color:#212121"><label><input type=radio name=DEL>
+        Date: <input type=date id=deldate></label><br><label><input type=radio name=DEL> Month: <input type=month
+          id=delmonth></label><br><label><input type=radio name=DEL> From: <input type=date id=delfrom> - To: <input
+          type=date id=delto></label></div>
+    <div class=darkfoot><button id=doDEL title="Delete the selected records">delete</button></div>
+  </div>
+</div>
+<div class=dark id=histscreen>
+  <div style=width:500px;height:360px>
+    <div class=drag>Chrome's history</div>
+    <div style=text-align:center;color:#212121>Date: <input type=date id=histdate><span id=histasks></span></div>
+    <div style=max-height:240px;overflow:auto>
+      <table id=histable>
+        <tr>
+          <td style=font-size:16px>Disclaimer: This tool will list all the tasks <b>acquired</b> on the specified day,
+            according to Google Chrome's history. All the tasks that have been acquired will be listed, even those that
+            were released (if any)
+      </table>
+    </div>
+    <div class=darkfoot><button id=expHist title="Export the selected browser history records to CSV file"
+        style=display:none>export</button></div>
+  </div>
+</div>
+<div class=dark id=settingsscreen>
+  <div style=width:700px;height:400px>
+    <div class=drag>Settings</div>
+    <div class=stngs>
+      <section><input type=radio id=snotif name=stngs checked><label for=snotif>Notifications</label>
+        <div><label title="A desktop notification will appear when there are tasks available"><input type=checkbox
+              class=notif value=1><span>When there are tasks available</span></label><label
+            title="A desktop notification will appear when a task is acquired. The notification will indicate the task type and the AET"><input
+              type=checkbox class=notif value=2><span>When a new task is acquired</span></label><label
+            title="A desktop notification will appear when a task is submitted. The notification will indicate the type of the task counted and the totals of the day so far"><input
+              type=checkbox class=notif value=4><span>When a task is submitted</span></label><label
+            title="A desktop notification will appear when the timer reaches the selected percentage of the AET"><input
+              type=checkbox class=notif value=8><span>When the timer reaches&nbsp;<select id=w
+                title="Select a percentage of AET time for the warning notification">
+                <option value=50>50%
+                <option value=60>60%
+                <option value=70>70%
+                <option value=75>75%
+                <option value=80>80%
+                <option value=85 selected>85%
+                <option value=90>90%
+                <option value=95>95%
+              </select>&nbsp;of AET (Average Estimated Time)</span></label><label
+            title="A desktop notification will appear when the timer reaches the AET for the task"><input type=checkbox
+              class=notif value=256><span>When the timer reaches AET</span></label>
+          <hr><label>Notify me when I reach these goals: (set to zero to disable)</label><label>Daily: <input
+              type=number id=dgh max=23 maxlength=2 min=0 size=3 step=1>h <input type=number id=dgm max=59 maxlength=2
+              min=0 size=2 step=1>m</label><label>Weekly: <input type=number id=wgh max=167 maxlength=3 min=0 size=3
+              step=1>h <input type=number id=wgm max=59 maxlength=2 min=0 size=2 step=1>m</label><label>Monthly: <input
+              type=number id=mgh max=743 maxlength=3 min=0 size=3 step=1>h <input type=number id=mgm max=59 maxlength=2
+              min=0 size=2 step=1>m</label></div>
+      </section>
+      <section><input type=radio id=ssound name=stngs><label for=ssound>Sounds</label>
+        <div><label title="A bell will ring when there are tasks available"><input type=checkbox class=notif
+              value=16><span>When there are tasks available</span></label><label
+            title="The bell will ring every 20 seconds until tasks are acquired or no more tasks are available">&nbsp;&nbsp;&nbsp;
+            <input type=checkbox class=notif value=65536><span>Repeat until tasks acquired</span></label><label
+            title="A bell will ring when the timer reaches the AET for the task"><input type=checkbox class=notif
+              value=32><span>When the timer reaches the AET (Average Estimated Time)</span></label></div>
+      </section>
+      <section><input type=radio id=sauto name=stngs><label for=sauto>Automation</label>
+        <div><label
+            title="If active, the main page will be reloaded automatically at the selected interval until there are tasks available"><input
+              type=checkbox class=notif value=64><span>Auto-reload every&nbsp;<select id=rm
+                title="Select an interval for the main page to reload, when there are no tasks available">
+                <option value=0>0 min
+                <option value=1>1 min
+                <option value=2 selected>2 min
+                <option value=3>3 min
+                <option value=4>4 min
+                <option value=5>5 min
+                <option value=10>10 min
+                <option value=15>15 min
+                <option value=20>20 min
+                <option value=30>30 min
+                <option value=40>40 min
+                <option value=50>50 min
+                <option value=60>60 min
+              </select>:<select id=rs
+                title="Select an interval for the main page to reload, when there are no tasks available">
+                <option value=0 selected>0 sec
+                <option value=5>5 sec
+                <option value=10>10 sec
+                <option value=15>15 sec
+                <option value=20>20 sec
+                <option value=25>25 sec
+                <option value=30>30 sec
+                <option value=40>40 sec
+                <option value=50>50 sec
+              </select>&nbsp;when no tasks are available</span></label><label
+            title="If active, the tasks will be automatically submitted at AET. IMPORTANT: LBTimer will not check if the task is completed before submitting it. Use with caution"><input
+              type=checkbox class=notif value=128><span>Autosubmit tasks at AET</span></label><label
+            title="Autosubmit will be triggered sooner if you're running behind AET in the current task type">&nbsp;
+            &nbsp; <input type=checkbox class=notif value=524288><span>Autosubmit up to&nbsp;<select id=sooner>
+                <option value=5>5 sec
+                <option value=10>10 sec
+                <option value=15>15 sec
+                <option value=20>20 sec
+                <option value=25>25 sec
+                <option value=30>30sec
+                <option value=45>45sec
+                <option value=60>1 min
+                <option value=120>2 min
+                <option value=180>3 min
+                <option value=240>4 min
+                <option value=300>5 min
+              </select>&nbsp;sooner if Real time &gt; AET</span></label><label
+            title="Autosubmit will be triggered later if you're ahead of AET in the current task type">&nbsp; &nbsp;
+            <input type=checkbox class=notif value=2097152><span>Autosubmit up to&nbsp;<select id=later>
+                <option value=5>5 sec
+                <option value=10>10 sec
+                <option value=15>15 sec
+                <option value=20>20 sec
+                <option value=25>25 sec
+                <option value=30>30sec
+                <option value=45>45sec
+                <option value=60>1 min
+                <option value=120>2 min
+                <option value=180>3 min
+                <option value=240>4 min
+                <option value=300>5 min
+                <option value=900>15 min
+                <option value=1800>30 min
+                <option value=2700>45 min
+                <option value=3600>1 hour
+                <option value=5400>1h 30m
+                <option value=6300>1h 45m
+              </select>&nbsp;later if Real time &lt; AET</span></label><label
+            title="If active, LBTimer will acquire the first task available that matches the type(s) selected"><input
+              type=checkbox class=notif value=2048><span>Acquire tasks automatically:</span></label><label
+            class=in>&nbsp;&nbsp;&nbsp; <input type=checkbox class=ttype value=1><span>DB</span></label><label
+            class=in><input type=checkbox class=ttype value=2><span>EXP</span></label><label class=in><input
+              type=checkbox class=ttype value=4><span>IRR</span></label><label class=in><input type=checkbox class=ttype
+              value=8><span>RR</span></label><label class=in><input type=checkbox class=ttype
+              value=16><span>SXS</span></label><label class=in><input type=checkbox class=ttype
+              value=32><span>TTR</span></label><label class=in><input type=checkbox class=ttype
+              value=64><span>URL</span></label><label
+            title="If active, tasks will be acquired automatically ONLY if previously there were no tasks available">&nbsp;&nbsp;&nbsp;
+            <input type=checkbox class=notif value=131072><span>Auto-acquire only after <span
+                style=color:#f40;font-weight:700>NRT</span> (No rating tasks)</span></label></div>
+      </section>
+      <section><input type=radio id=stimi name=stngs><label for=stimi>Timing</label>
+        <div><label title="If active, the clock will countdown from AET to zero"><input type=checkbox class=notif
+              value=512><span>Countdown clock</span></label><label
+            title="If active, the timesheet will display the time that can be billed to Lionbridge or Leapforce. The real time spent can be seen hovering the mouse over the time cells. If inactive, the timesheet will display the real time spent"><input
+              type=checkbox class=notif value=1024><span>Show timesheets in AET mode</span></label><label
+            title="If active, the daily, weekly and monthly totals will be shown in hours:minutes format"><input
+              type=checkbox class=notif value=32768><span>Show totals in hh:mm format</span></label><label
+            title="If active, LBTimer will check if the day has changed while there are no active tasks (in case you work through midnight)"><input
+              type=checkbox class=notif value=4096><span>Check midnight passing</span></label><label
+            title="If active, LBTimer will use Pacific Time to calculate dates"><input type=checkbox class=notif
+              value=262144><span>Use Pacific Time</span></label><label>Week starts on:<select id=fdw>
+              <option value=0>Sunday
+              <option value=1>Monday
+            </select></label><label
+            title="With continuous timer, the timer will be reset as soon as a task is submitted, without waiting for the next task (if any) to be loaded">Continuous
+            timer:&nbsp;<select id=ct>
+              <option value=0>always
+              <option value=30>when AET &gt; 30 seconds
+              <option value=60>when AET &gt; 1 minute
+              <option value=120>when AET &gt; 2 minutes
+              <option value=8000>never
+            </select></label></div>
+      </section>
+      <section><input type=radio id=semail name=stngs><label for=semail>Email</label>
+        <div><label title="Send an e-mail to the specified address(es) when there are tasks available"><input
+              type=checkbox class=notif value=1048576><span>When tasks are available, send e-mail
+              to:</span></label><input title="Write the e-mail addresses to be notified of task availability" id=mails
+            placeholder="e-mail address(es)" style=width:90%><label>You can select multiple e-mail addresses separated
+            by semicolon (;)</label></div>
+      </section>
+      <section><input type=radio id=smisc name=stngs><label for=smisc>Misc</label>
+        <div><label
+            title="Enables the experimental features RatefromLP, that allow you to rate the results of NeedsMet and SXS tasks from the landing page, without having to switch constantly between the main page and the landing pages"><input
+              type=checkbox class=notif value=8192><span>Enable <a target=_blank
+                href=http://jsfiddle.net/2aem2j2n/>Rate-from-LP panel</a> in landing pages</span></label><label>Hourly
+            wage: <input size=5 id=payrate title="Hourly wage, in your currency"></label></div>
+      </section>
+      <section><input type=radio id=scust name=stngs><label for=scust>Custom links</label>
+        <div>
+          <table class=crl>
+            <tr>
+              <td>Label
+              <td colspan=2>Custom link
+            <tr>
+              <td><input class=lcrl>
+              <td colspan=2><input class=ucrl>
+            <tr>
+              <td><input class=lcrl>
+              <td colspan=2><input class=ucrl>
+            <tr>
+              <td><input class=lcrl>
+              <td colspan=2><input class=ucrl>
+            <tr>
+              <td><input class=lcrl>
+              <td colspan=2><input class=ucrl>
+            <tr>
+              <td><input class=lcrl>
+              <td colspan=2><input class=ucrl>
+          </table>
+          <div><a target=_blank href=https://lbtimer.github.io/help/#custom>Online help</a> </div> <div
+              style="border:1px solid #333">
+              <div>Live preview</div>
+              <p class=preview><span style=font-weight:700>Task URL: </span>http://www.example.com/subpage1/supbpage2<p
+                  class=preview><span style=font-weight:700>Locale: </span>English (US)<p class=preview><b
+                      style=color:#f40>LBTimer</b><span class=preview></span></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class=dark id=editing>
+  <div style=width:300px;height:340px>
+    <div class=drag>Edit record</div>
+    <div style=font-weight:700;margin:2px id=edidate></div>
+    <div>
+      <table class=editable>
+        <tr>
+          <th>
+          <th>AET
+          <th>Real
+          <th>Tasks
+        <tr>
+          <td>DB
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>EXP
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>IRR
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>RR
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>SXS
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>TTR
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+        <tr>
+          <td>URL
+          <td><input class=editAET maxlength=6 size=6>
+          <td><input class=editxtra maxlength=6 size=6>
+          <td><input class=edittasks maxlength=6 size=6>
+      </table>
+    </div>
+    <div class=darkfoot><button id=apply title="Apply new values to selected date">save</button></div>
+  </div>
+</div>
+<div style=position:fixed;bottom:5px;right:10px>
+  <div><a target=_blank href="https://play.google.com/store/apps/details?id=com.lbtimer.iczubak.lbtimer"><img
+        src=https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png style=width:170px
+        alt="Get it on Google Play"></a></div>
+</div>
+<ul id=lbmenu><a id=log><img src=img/t.svg style="vertical-align:middle;text-align:center;margin:0 20px 0 0;height:32px"
+      align=absmiddle>View Log</a>
+  <li>
+    <div id=lbLatMonthlyView><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><g font-family="Ubuntu,sans-serif" font-size="85" fill="#f90" font-weight="bold"><text x="8" y="80">3</text><text x="48" y="80">1</text></g></svg>'>Monthly
+      timesheet</div>
+  <li>
+    <div id=lbLatWeeklyView><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><text x="27" y="80" font-family="Ubuntu,sans-serif" font-size="85" fill="#f90" font-weight="bold">7</text></svg>'>Weekly
+      timesheet</div>
+  <li>
+    <div id=lbLatSettings><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><g stroke-width="5" fill="none"><g stroke="#6d1"><polyline points="10 20 20 30 36 14"/><polyline points="10 50 20 60 36 44"/></g><g stroke="#000"><path d="M45 25 H90"/><path d="M45 55 H80"/></g><path d="M45 85 H90" stroke="#aaa"/></g></svg>'>Settings
+    </div>
+  <li>
+    <div id=lbLatExport><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><path d="M30 15 50 45 40 45 40 85 20 85 20 45 10 45Z" fill="#48e"/><path d="M60 15 80 15 80 55 90 55 70 85 50 55 60 55Z" fill="#095"/></svg>'>Export/Import
+    </div>
+  <li>
+    <div id=lbLatClock><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><rect width="80" height="25" x="10" y="10" fill="#48e" rx="4" ry="4"/><g font-family="Ubuntu,sans-serif" font-size="45" fill="#f90" font-weight="bold"><text x="8" y="80">0</text><text x="40" y="80">00</text><circle cx="36.5" cy="60" r="3"/><circle cx="36.5" cy="70" r="3"/></g></svg>'>Clock
+    </div>
+  <li>
+  <li>
+    <div id=lbLatDel><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><g stroke="#f43" stroke-width="15"><path d="M15 15 85 85 M15 85 85 15z"/></g></svg>'>Delete
+      records</div>
+  <li>
+    <div id=lbLatHis><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><path d="M12 50 A39 39 0 1 1 38 85" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round"/><g fill="#000"><path d="M4 50 20 50 12 62z" stroke ="#000" stroke-width="2"/><rect x="48" y="19" width="8" height="35" rx="4" ry="4"/><rect x="48" y="48" width="28" height="7" rx="3.5" ry="3.5"/></g></svg>'>Chrome's
+      history</div>
+  <li>
+  <li>
+    <div id=lbLatWhatsNew><img
+        src='data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="8" ry="8" fill="#fff"/><rect width="20" height="60" x="40" y="5" fill="#48e" rx="10" ry="10"/><circle cx="50" cy="85" r="10" fill="#48e"/></svg>'>What's
+      new?</div>
+  <li>
+    <div id=lbLatContact><img src=img/c.svg>Contact </div> </ul> <a target=_blank download=d.csv id=dwnld></a>
+      <script src=n.js></script>
